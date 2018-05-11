@@ -1,1 +1,418 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>早会分享-----------Android Studio多渠道打包</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<base href='file:\\\F:\工作技术文档记录\早会分享-----Android Studio多渠道打包\'/>
+</head>
+<body>
+<h1><font size=8>Android Studio 多渠道打包</font></h1>
+<h3><font size=6>一、为什么要使用Android Studio 多渠道打包？</font></h3>
+<p><font size=5>不同的客户需要定制不同的LOGO、AppName等，如果每个客户都建立一个分支维护一套代码，浪费人力、时间，加大了维护成本；</font></p>
+<h3><font size=6>二、多渠道的建立步骤：</font></h3>
+<p><img src="img/android_studio_multichannel_packing_001.jpg" /></p>
+<p><font size=5>1、在如上图中红色标记的build.gradle的文件中，在android{}节点下添加productFlavors{}节点，如：</font></p>
+<pre><code>productFlavors {
+    ht {
+        applicationId &quot;com.ptyt.test.ht&quot;
+        buildConfigField &quot;int&quot;, &quot;versionType&quot;, &quot;2&quot;
+    }
+
+    hg {
+        applicationId &quot;com.ptyt.test.hg&quot;
+        buildConfigField &quot;int&quot;, &quot;versionType&quot;, &quot;3&quot;
+    }
+}
+</code></pre>
+
+<p><img src="img/android_studio_multichannel_packing_002.jpg" /></p>
+<p><font size=5>2、文件树切换到Project视图，在src目录下新建你配置过的flavor文件夹 ，与main文件夹同级；
+可以新建与main下一模一样的结构并且把不同的代码放进去，java, res, assets, manifest都可以不同！如下图所示：</font></p>
+<p><img src="img/android_studio_multichannel_packing_003.jpg" /></p>
+<p><font size=5>3、注意到hg文件夹与ht文件夹的区别了吗？有颜色的表示当前AS编译的是该渠道，想更换其他渠道在build variant窗口中：</font></p>
+<p><img src="img/android_studio_multichannel_packing_004.jpg" /></p>
+<p><img src="img/android_studio_multichannel_packing_005.jpg" /></p>
+<p><font size=5>4、要注意的是：渠道需要声明flavor dimensions</font></p>
+<p><font size=5>5、一个build.gradle的案例代码</font></p>
+<pre><code>apply plugin: 'com.android.application'
+
+//定义打包时间函数
+def packageTime() {
+    return new Date().format(&quot;yyMMdd&quot;, TimeZone.getDefault())
+}
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId &quot;com.ptyt.test&quot;
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName &quot;4.0.0.0&quot;
+        //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
+        flavorDimensions &quot;minSdkVersion&quot;
+        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;
+        buildConfigField &quot;int&quot;, &quot;versionType&quot;, &quot;1&quot;
+    }
+    buildTypes {
+        debug {
+            buildConfigField &quot;boolean&quot;, &quot;IS_DEBUG&quot;, &quot;true&quot;
+            //在编译打包时会给包名加上后缀
+            applicationIdSuffix '.debug'
+        }
+        release {
+            buildConfigField &quot;boolean&quot;, &quot;IS_DEBUG&quot;, &quot;false&quot;
+            // 这里的作用是选择是否混淆代码
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 修改生成的最终文件名
+    android.applicationVariants.all { variant -&gt;
+        variant.outputs.all {
+            outputFileName = &quot;PTM9100_V${variant.versionName}_${packageTime()}.apk&quot;
+        }
+    }
+
+    productFlavors {
+        ht {
+            applicationId &quot;com.ptyt.test.ht&quot;
+            buildConfigField &quot;int&quot;, &quot;versionType&quot;, &quot;2&quot;
+        }
+
+        hg {
+            applicationId &quot;com.ptyt.test.hg&quot;
+            buildConfigField &quot;int&quot;, &quot;versionType&quot;, &quot;3&quot;
+        }
+    }
+    sourceSets {
+        ht {
+            java.srcDirs = ['src/ht/java', 'src/ht/java/']
+            manifest.srcFile 'src/ht/AndroidManifest.xml'
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation(name: 'uctsdk_v1.0', ext: 'aar')
+    implementation 'pub.devrel:easypermissions:1.1.1'
+}
+</code></pre>
+
+<h3><font size=6>三、多渠道打包步骤：</font></h3>
+<p><font size=5>1、</font></p>
+<p><img src="img/android_studio_multichannel_packing_006.jpg" /></p>
+<p><font size=5>2、</font></p>
+<p><img src="img/android_studio_multichannel_packing_007.jpg" /></p>
+<p><font size=5>3、</font></p>
+<p><img src="img/android_studio_multichannel_packing_008.jpg" /></p>
+<p><img src="img/android_studio_multichannel_packing_009.jpg" /></p>
+<p><img src="img/android_studio_multichannel_packing_010.jpg" /></p>
+<p><font size=5>4、</font></p>
+<p><img src="img/android_studio_multichannel_packing_011.jpg" /></p>
+<p><img src="img/android_studio_multichannel_packing_012.jpg" /></p>
+<p><img src="img/android_studio_multichannel_packing_013.jpg" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
